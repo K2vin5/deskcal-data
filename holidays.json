@@ -1,7 +1,7 @@
 {
  "version": 1,
- "updated_at": "2026-11-13T17:36:55Z",
- "source": "DeskCal 내장 계산값 (첫 자동 갱신 전 임시 데이터 — Actions 가 실행되면 천문연 API 값으로 바뀜)",
+ "updated_at": "2026-11-14T07:44:46Z",
+ "source": "한국천문연구원 특일 정보 (공공데이터포털, data.go.kr)",
  "years": {
   "2026": [
    {
@@ -60,7 +60,7 @@
    },
    {
     "date": "2026-03-02",
-    "name": "대체공휴일",
+    "name": "대체공휴일(삼일절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -120,7 +120,7 @@
    },
    {
     "date": "2026-05-25",
-    "name": "대체공휴일",
+    "name": "대체공휴일(부처님오신날)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -180,7 +180,7 @@
    },
    {
     "date": "2026-08-17",
-    "name": "대체공휴일",
+    "name": "대체공휴일(광복절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -228,7 +228,7 @@
    },
    {
     "date": "2026-10-05",
-    "name": "대체공휴일",
+    "name": "대체공휴일(개천절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -326,7 +326,7 @@
    },
    {
     "date": "2027-02-09",
-    "name": "대체공휴일",
+    "name": "대체공휴일(설날)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -369,6 +369,12 @@
    {
     "date": "2027-05-01",
     "name": "노동절",
+    "kind": "holiday",
+    "isOffDay": true
+   },
+   {
+    "date": "2027-05-03",
+    "name": "대체공휴일(노동절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -428,7 +434,7 @@
    },
    {
     "date": "2027-07-19",
-    "name": "대체공휴일",
+    "name": "대체공휴일(제헌절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -452,7 +458,7 @@
    },
    {
     "date": "2027-08-16",
-    "name": "대체공휴일",
+    "name": "대체공휴일(광복절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -500,7 +506,7 @@
    },
    {
     "date": "2027-10-04",
-    "name": "대체공휴일",
+    "name": "대체공휴일(개천절)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -518,7 +524,7 @@
    },
    {
     "date": "2027-10-11",
-    "name": "대체공휴일",
+    "name": "대체공휴일(한글날)",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -560,7 +566,7 @@
    },
    {
     "date": "2027-12-27",
-    "name": "대체공휴일",
+    "name": "대체공휴일(기독탄신일)",
     "kind": "holiday",
     "isOffDay": true
    }
@@ -640,7 +646,7 @@
    },
    {
     "date": "2028-04-12",
-    "name": "국회의원선거",
+    "name": "국회의원선거일",
     "kind": "holiday",
     "isOffDay": true
    },
@@ -772,7 +778,7 @@
    },
    {
     "date": "2028-10-05",
-    "name": "대체공휴일",
+    "name": "대체공휴일(추석)",
     "kind": "holiday",
     "isOffDay": true
    },
