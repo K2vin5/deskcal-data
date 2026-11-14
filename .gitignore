@@ -1,0 +1,13 @@
+# 비밀값·개인 파일은 공개 저장소에 올리지 않는다
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+.tauri/
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
