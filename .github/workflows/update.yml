@@ -1,0 +1,53 @@
+# 매월 1일 한국천문연구원 특일 정보 API 로 holidays.json 을 다시 만든다.
+# 내용이 바뀌었을 때만 커밋한다. Actions 탭에서 "Run workflow" 로 언제든 수동 실행 가능.
+name: Update holidays.json
+
+on:
+  schedule:
+    - cron: "0 0 1 * *" # 매월 1일 00:00 UTC (한국 시간 오전 9시)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # holidays.json 커밋
+  actions: write # 아래 "keep alive" 단계 (워크플로 다시 켜기)
+
+concurrency:
+  group: update-holidays
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch holidays from KASI API
+        env:
+          KASI_API_KEY: ${{ secrets.KASI_API_KEY }}
+        run: node scripts/fetch_holidays.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- holidays.json; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add holidays.json
+          git commit -m "chore: holidays.json 자동 갱신 ($(date -u +%Y-%m-%d))"
+          git push
+
+      # GitHub 는 60일 동안 저장소 활동이 없으면 예약 실행을 자동으로 끈다.
+      # 공휴일 데이터는 몇 달씩 안 바뀌어 커밋이 없을 수 있으므로, 실행할 때마다 이 워크플로를 "켜기" API 로 다시 켜 둔다.
+      - name: Keep schedule alive
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/update.yml/enable"
