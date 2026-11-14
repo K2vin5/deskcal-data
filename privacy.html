@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeskCal 개인정보처리방침</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a class="logo" href="./">DeskCal <span class="beta">베타</span></a>
+    <nav>
+      <a href="./#download">다운로드</a>
+      <a href="install.html">설치 안내</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </nav>
+  </header>
+  <main>
+    <h1>개인정보처리방침</h1>
+    <p class="muted">시행일: 2026년 11월 14일 · 적용 대상: DeskCal Windows 앱 (베타)</p>
+
+    <section>
+      <h2>요약</h2>
+      <ul>
+        <li>DeskCal 은 <b>회원가입이 없고, 우리 서버가 없습니다.</b> 일정·할 일·메모는 사용자의 PC 에만 저장됩니다.</li>
+        <li>외부 캘린더(구글·아이클라우드·ICS)를 연결하면 그 일정을 <b>읽기만</b> 해서 사용자의 PC 에 보여 주고, 다른 곳으로 보내지 않습니다.</li>
+        <li>익명 사용 통계는 <b>기본으로 꺼져 있고</b>, 사용자가 동의한 경우에만 앱 실행·버전·기능 사용 여부를 보냅니다. 일정 내용·이메일·이름은 보내지 않습니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>1. 사용자의 PC 에 저장하는 정보</h2>
+      <table>
+        <tr><th>정보</th><th>위치</th></tr>
+        <tr><td>일정·할 일·메모·카테고리·설정, 외부 캘린더에서 받아 온 일정 사본</td><td><code>%APPDATA%\kr.deskcal.app\deskcal.db</code> (자동 백업: 같은 폴더의 <code>backups</code>, 최근 7개)</td></tr>
+        <tr><td>외부 캘린더 비공개 주소, Google 갱신 토큰, 아이클라우드 앱 암호</td><td>Windows 자격 증명 관리자 (암호화된 OS 보안 저장소). DB 에는 저장하지 않음</td></tr>
+        <tr><td>오류 로그 (최대 5MB × 2개)</td><td><code>%LOCALAPPDATA%\kr.deskcal.app\logs</code>. 일정 제목·메모 내용·이메일 같은 개인 내용은 기록 전에 지웁니다</td></tr>
+      </table>
+      <p>이 정보는 사용자가 직접 내보내거나(설정 → 일반 → 데이터) 오류 로그 zip 을 보내지 않는 한 PC 밖으로 나가지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2>2. 외부 캘린더 연동 (선택)</h2>
+      <h3>Google 캘린더</h3>
+      <ul>
+        <li>요청하는 권한: <code>https://www.googleapis.com/auth/calendar.readonly</code> (캘린더 목록과 일정 <b>읽기 전용</b>). 일정을 만들거나 바꾸거나 지우지 않습니다.</li>
+        <li>받은 일정은 사용자의 PC 에서 달력에 표시하는 데에만 쓰며, 개발자를 포함한 누구에게도 전송·공유·판매하지 않습니다. 광고나 AI 학습에 쓰지 않습니다.</li>
+        <li>로그인은 사용자의 기본 브라우저에서 Google 이 직접 처리하며, DeskCal 은 Google 비밀번호를 보거나 저장하지 않습니다.</li>
+        <li>DeskCal 의 Google API 사용자 데이터 사용은 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>의 <b>제한적 사용(Limited Use)</b> 요구 사항을 따릅니다.</li>
+        <li>연결 해제(설정 → 계정·연동)하면 받아 온 일정과 토큰이 PC 에서 지워집니다. Google 계정의 <a href="https://myaccount.google.com/permissions">타사 앱 액세스</a>에서도 권한을 취소할 수 있습니다.</li>
+      </ul>
+      <h3>아이클라우드 (CalDAV)</h3>
+      <ul>
+        <li>Apple ID 와 <b>앱 암호</b>(일반 비밀번호 아님)로 <code>caldav.icloud.com</code> 에 직접 접속해 일정을 읽습니다. 앱 암호는 Windows 자격 증명 관리자에만 저장되며 appleid.apple.com 에서 언제든 취소할 수 있습니다.</li>
+      </ul>
+      <h3>ICS 주소 구독</h3>
+      <ul>
+        <li>사용자가 넣은 주소에서 캘린더 파일을 받아 옵니다. 주소는 비밀번호처럼 취급해 자격 증명 관리자에만 저장합니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. 익명 사용 통계 (선택, 기본 꺼짐)</h2>
+      <p>첫 실행 안내에서 동의하거나 설정 → 일반 → "익명 사용 통계 보내기"를 켠 경우에만 <a href="https://aptabase.com">Aptabase</a> 로 보냅니다. 언제든 끌 수 있습니다.</p>
+      <table>
+        <tr><th>보내는 것</th><th>보내지 않는 것</th></tr>
+        <tr>
+          <td>
+            앱 실행 / 앱 버전 / Windows 버전<br />
+            기능 사용 여부(하루 1번, 참·거짓만): 외부 캘린더 연결(구글·아이클라우드·ICS), 스티커 메모·할 일·기간 일정 사용, 카테고리 추가, 투명 배경<br />
+            실행할 때마다 새로 만드는 임의의 세션 번호
+          </td>
+          <td>일정·할 일·메모의 제목과 내용, 이메일, 이름, 계정 정보, 외부 캘린더 주소·토큰. Aptabase 는 IP 주소를 저장하지 않고 쿠키·광고 ID 를 쓰지 않습니다.</td>
+        </tr>
+      </table>
+      <p class="muted">보내는 내용은 앱의 설정 → 정보 탭에도 그대로 적혀 있습니다.</p>
+    </section>
+
+    <section>
+      <h2>4. 앱이 인터넷에 접속하는 경우</h2>
+      <ul>
+        <li><b>공휴일 데이터</b>: 하루 1번 GitHub(raw.githubusercontent.com)에서 공휴일 파일을 받습니다.</li>
+        <li><b>업데이트 확인</b>: 하루 1번 GitHub Releases 에서 최신 버전 정보를 확인합니다.</li>
+        <li><b>외부 캘린더</b>: 연결한 경우 설정한 주기(15·30·60분)로 해당 서비스에 접속합니다.</li>
+        <li><b>피드백</b>: "피드백 보내기"를 누르면 Google 설문지가 브라우저에서 열리고, 앱 버전·Windows 버전이 미리 채워집니다. 설문에 쓴 내용은 Google 설문지(Google 의 개인정보처리방침 적용)로 개발자에게 전달됩니다.</li>
+      </ul>
+      <p class="muted">이런 접속에서는 일반적인 웹 요청처럼 각 서비스가 IP 주소 등 접속 기록을 남길 수 있습니다. DeskCal 은 개인 데이터를 함께 보내지 않습니다.</p>
+    </section>
+
+    <section>
+      <h2>5. 보관과 삭제</h2>
+      <ul>
+        <li>모든 데이터는 사용자의 PC 에 있으므로 사용자가 직접 지울 수 있습니다: 앱을 제거할 때 "애플리케이션 데이터 삭제하기"를 체크하거나 위 폴더를 지우세요. 외부 캘린더 비밀값은 각 캘린더를 "연결 해제"하면 지워집니다.</li>
+        <li>익명 통계는 개인을 식별할 수 없어 개별 삭제 요청 대상이 아니며, Aptabase 의 보관 정책을 따릅니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. 어린이</h2>
+      <p>DeskCal 은 어린이를 대상으로 하지 않으며, 어린이의 개인정보를 알면서 수집하지 않습니다.</p>
+    </section>
+
+    <section id="contact">
+      <h2>7. 문의 · 변경</h2>
+      <p>개인정보 관련 문의: <span id="contact-email">준비 중</span> 또는 앱의 ☰ → 피드백 보내기.<br />
+      이 방침이 바뀌면 이 페이지와 릴리스 안내에 알립니다.</p>
+    </section>
+  </main>
+  <footer><a href="./">처음으로</a> · 공휴일·24절기 정보: 한국천문연구원 특일 정보 (공공데이터포털, data.go.kr)</footer>
+</body>
+</html>

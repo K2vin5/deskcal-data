@@ -1,6 +1,12 @@
-# deskcal-holidays — DeskCal 공휴일·24절기 데이터
+# deskcal-data — DeskCal 공개 저장소 (공휴일 데이터 · 업데이트 · 소개 페이지)
 
-DeskCal 앱이 하루에 한 번 내려받는 `holidays.json` 을 보관하는 **공개 저장소**용 파일입니다.
+DeskCal 의 **공개 저장소**용 파일입니다. (앱 코드 저장소는 비공개)
+
+- `holidays.json` — 앱이 하루 한 번 내려받는 공휴일·24절기
+- **GitHub Releases** — 설치 파일 + 자동 업데이트 정보(`latest.json`). 코드 저장소의 `scripts/release.ps1` 이 올립니다 (`docs/release.md`)
+- **GitHub Pages** — `index.html`(소개·다운로드), `install.html`(설치·PC 보호 경고 안내), `privacy.html`(개인정보처리방침, Google OAuth 심사에도 사용)
+
+공휴일 데이터는
 GitHub Actions 가 매월 1일 한국천문연구원 특일 정보 API 로 파일을 새로 만들고, 내용이 바뀌었을 때만 커밋합니다.
 앱 사용자는 API 키를 넣을 필요가 없습니다.
 
@@ -9,6 +15,8 @@ GitHub Actions 가 매월 1일 한국천문연구원 특일 정보 API 로 파�
 - 지금 들어 있는 `holidays.json` 은 앱 내장 계산값으로 만든 **임시 데이터**입니다. 아래 5단계에서 Actions 를 한 번 실행하면 천문연 API 값으로 바뀝니다.
 
 ```
+index.html · install.html · privacy.html · style.css · assets/   GitHub Pages
+.nojekyll                      Pages 가 파일을 그대로 쓰게
 holidays.json                  앱이 내려받는 파일
 scripts/fetch_holidays.mjs     API 로 holidays.json 을 만드는 스크립트 (Node 20, 패키지 설치 필요 없음)
 .github/workflows/update.yml   매월 1일 자동 실행 + 수동 실행
@@ -31,7 +39,7 @@ scripts/fetch_holidays.mjs     API 로 holidays.json 을 만드는 스크립트 
 1. https://github.com 에 가입·로그인합니다.
 2. 오른쪽 위 **+** → **New repository**.
 3. 입력:
-   - Repository name: **`deskcal-holidays`** (앱의 기본 주소가 이 이름을 씁니다)
+   - Repository name: **`deskcal-data`** (앱의 기본 주소가 이 이름을 씁니다)
    - **Public** 선택 (앱이 로그인 없이 내려받으려면 공개여야 합니다. 키는 공개되지 않습니다)
    - "Add a README file" 은 **체크하지 않기**
 4. **Create repository**.
@@ -63,7 +71,7 @@ git commit -m "첫 커밋"
 ```
 
 ```bash
-git remote add origin https://github.com/내아이디/deskcal-holidays.git
+git remote add origin https://github.com/내아이디/deskcal-data.git
 ```
 
 ```bash
@@ -90,13 +98,27 @@ git push -u origin main
 브라우저에서 아래 주소를 열어 JSON 이 보이면 완료입니다 (`내아이디` 바꾸기):
 
 ```
-https://raw.githubusercontent.com/내아이디/deskcal-holidays/main/holidays.json
+https://raw.githubusercontent.com/내아이디/deskcal-data/main/holidays.json
 ```
 
 그다음 DeskCal 프로젝트의 `src/config.ts` 에서 `YOUR_GITHUB_ID` 를 본인 아이디로 바꾸고 설치 파일을 다시 만듭니다 (`npm run tauri build`).
 - 바꾸기 전에 시험해 보려면: 앱 설정 → 정보 → 버전 글자 5번 클릭 → 개발자 옵션 → "원격 데이터 주소" 에 위 주소를 넣고 **지금 확인**.
 
 ---
+
+## 이미 `deskcal-holidays` 로 만들었다면 → 이름 바꾸기
+
+저장소 **Settings → General → Repository name** 을 `deskcal-data` 로 바꾸고 **Rename**. 옛 주소로 접속해도 GitHub 가 새 주소로 넘겨 주므로 이미 설치된 0.1.x 앱도 계속 공휴일을 받습니다.
+그다음 이 폴더의 새 파일들(`index.html`, `install.html`, `privacy.html`, `style.css`, `.nojekyll`, `assets/`, 바뀐 `README.md`)을 저장소에 올리세요 (3단계 방법 A 처럼 끌어다 놓기).
+
+## GitHub Pages 켜기 (소개·설치 안내·개인정보처리방침)
+
+1. 저장소 **Settings → Pages**
+2. **Build and deployment → Source: Deploy from a branch**, Branch: **main**, 폴더 **/ (root)** → **Save**
+3. 1~2분 뒤 위쪽에 주소가 나옵니다: `https://내아이디.github.io/deskcal-data/` → 열어서 확인
+4. 앱의 정보 탭 링크는 `src/config.ts` 의 `PAGES_URL` 을 씁니다 (기본 `https://k2vin5.github.io/deskcal-data/`)
+5. 설치 안내의 스크린샷 자리: `assets/smartscreen-1.png`, `assets/smartscreen-2.png` 를 올리고 `install.html` 의 "스크린샷 자리" 부분을 `<img src="assets/smartscreen-1.png" alt="…">` 로 바꾸세요
+6. 문의 이메일: `index.html`, `privacy.html` 의 `<span id="contact-email">준비 중</span>` 을 이메일로 바꾸세요 (앱 쪽은 `src/config.ts` 의 `CONTACT_EMAIL`)
 
 ## 그 뒤로는 자동
 

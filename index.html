@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeskCal — 바탕화면 달력</title>
+  <meta name="description" content="바탕화면에 붙어 있는 한국형 달력 위젯. 공휴일·24절기, 일정·할 일, 스티커 메모, 구글·아이클라우드 캘린더 함께 보기." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a class="logo" href="./">DeskCal <span class="beta">베타</span></a>
+    <nav>
+      <a href="#download">다운로드</a>
+      <a href="install.html">설치 안내</a>
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="#contact">문의</a>
+    </nav>
+  </header>
+  <main>
+    <h1>바탕화면에 붙어 있는<br />한국형 달력</h1>
+    <p class="muted">Windows 10/11 · 무료 베타 (베타 기간에는 모든 기능 무료)</p>
+
+    <section>
+      <h2>이런 걸 할 수 있어요</h2>
+      <ul>
+        <li><b>바탕화면 위젯</b> — 아이콘과 같은 층에 붙어 Win+D 를 눌러도 사라지지 않고, 다른 창 뒤에 가려집니다. 배경 투명도 조절.</li>
+        <li><b>공휴일·대체공휴일·24절기</b> — 한국천문연구원 특일 정보 기준, 자동 갱신.</li>
+        <li><b>일정 · 기간 일정 · 할 일</b> — 날짜 더블클릭으로 바로 입력, 끝내지 않은 할 일은 오늘 칸으로 따라옵니다.</li>
+        <li><b>스티커 메모</b> — 여러 장, 체크리스트, 다크 모드.</li>
+        <li><b>외부 캘린더 함께 보기</b> — 구글 캘린더, 아이클라우드, ICS 주소 (읽기 전용).</li>
+        <li><b>가볍게</b> — 가만히 있을 때 CPU 거의 0, 메모리 약 50MB.</li>
+      </ul>
+    </section>
+
+    <section id="download">
+      <h2>다운로드</h2>
+      <a class="download" href="https://github.com/k2vin5/deskcal-data/releases/latest">최신 버전 받기 (Windows)</a>
+      <a class="download secondary" href="install.html">설치 안내 보기</a>
+      <p class="muted">
+        릴리스 페이지의 <code>DeskCal_x.y.z_x64-setup.exe</code> 를 받아 실행하세요. (회사 PC 등 MSI 가 필요하면 <code>.msi</code>)<br />
+        설치하면 앱이 하루 한 번 새 버전을 확인하고, 알림을 누르면 업데이트됩니다.<br />
+        설치할 때 "Windows의 PC 보호" 창이 뜨면 → <a href="install.html">이렇게 하세요</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>베타 안내</h2>
+      <ul>
+        <li>아직 다듬는 중이라 버그가 있을 수 있어요. 데이터는 하루 한 번 자동 백업되고(최근 7개), 설정 → 일반에서 복원·내보내기를 할 수 있습니다.</li>
+        <li>앱을 지워도 데이터는 남습니다. 완전히 지우려면 제거할 때 "애플리케이션 데이터 삭제하기"를 체크하세요.</li>
+        <li>불편한 점·아이디어는 달력 ☰ 메뉴 → <b>피드백 보내기</b>로 알려 주세요.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>문의</h2>
+      <p>
+        달력 ☰ 메뉴 → <b>피드백 보내기</b> (가장 빠름)<br />
+        이메일: <span id="contact-email">준비 중</span><br />
+        오류가 있으면 ☰ → <b>오류 로그 내보내기</b>로 만든 zip 을 함께 보내 주세요. (로그에는 일정 제목·메모 내용 같은 개인 내용이 들어 있지 않습니다)
+      </p>
+    </section>
+  </main>
+  <footer>
+    공휴일·24절기 정보: 한국천문연구원 특일 정보 (공공데이터포털, data.go.kr) ·
+    <a href="privacy.html">개인정보처리방침</a>
+  </footer>
+</body>
+</html>
